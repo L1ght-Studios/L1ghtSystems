@@ -1,0 +1,2 @@
+const Light = require("../index")
+

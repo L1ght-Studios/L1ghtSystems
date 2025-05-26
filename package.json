@@ -1,0 +1,22 @@
+{
+  "name": "lightsystems",
+  "version": "1.1.0",
+  "description": "Creating discord bots at a new level",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/L1ght-Studios/L1ghtSystems.git"
+  },
+  "keywords": [
+    "meow"
+  ],
+  "author": "rosie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/L1ght-Studios/L1ghtSystems/issues"
+  },
+  "homepage": "https://github.com/L1ght-Studios/L1ghtSystems#readme"
+}
