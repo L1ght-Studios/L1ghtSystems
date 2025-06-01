@@ -1,6 +1,6 @@
 {
   "name": "lightsystems",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Creating discord bots at a new level",
   "main": "index.js",
   "scripts": {
