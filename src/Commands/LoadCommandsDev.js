@@ -18,10 +18,10 @@ module.exports = async function (client, folder, json) {
         if ("data" in command && "file" in command && "global" in command) {
             try {
                 if (command.global === false) {
-                    client.guildcommands.set(command.data.name, command)
+                    client.guildcommands.set(command.data.name)
                     guildcommands.push(command.data)
                 } else {
-                    client.commands.set(command.data.name, command)
+                    client.commands.set(command.data.name)
                     globalcommands.push(command.data)
                 }
             } catch (error) {
@@ -37,16 +37,14 @@ module.exports = async function (client, folder, json) {
 
     (async () => {
         try {
-            if (globalcommands.length > 0) {
-                output.print("commands", `started updating ${globalcommands.length} global (/) commands`)
+            output.print("commands", `${globalcommands.length} global (/) commands are updating`)
 
-                const data = await rest.put(
-                    Routes.applicationCommands(json.ClientId),
-                    { body: globalcommands }
-                )
+            const data = await rest.put(
+                Routes.applicationCommand(json.ClientId),
+                { body: globalcommands }
+            )
 
-                output.print("commands", `successfully updated ${data.length} global (/) commands`)
-            }
+            output.print("commands", `${data.length} global (/) commands have been updated`)
         } catch (error) {
             output.error("commands", `something unexpected went wrong: ${error}`)
         }
@@ -56,30 +54,29 @@ module.exports = async function (client, folder, json) {
             if (!botdata) {
                 output.warn("database", "mongodb has not been setup, please setup to load guild only commands")
                 output.info("assistance", "stuck? contact @therealdevrose on discord for assistance with using this system")
-                return
+                return;
             }
 
             if (!botdata.TestGuild) {
                 output.warn("database", "test guild not provided when setting up guild commands, all guild commands will not be loaded")
                 output.info("assistance", "stuck? contact @therealdevrose on discord for assistance with using this system");
-                return
+                return;
             }
 
             try {
-                if (guildcommands.length > 0) {
-                    output.print("commands", `started updating ${guildcommands.length} guild (/) commands`)
-                    const data = await rest.put(
-                        Routes.applicationGuildCommands(json.ClientId, botdata.TestGuild),
-                        { body: guildcommands }
-                    )
+                output.print("commands", `${guildcommands.length} test (/) commands are updating`)
 
-                    output.print("commands", `successfully updated ${data.length} test (/) commands`)
-                }
+                const data = await rest.put(
+                    Routes.applicationGuildCommands(json.ClientId, botdata.TestGuild),
+                    { body: guildcommands }
+                )
+
+                output.print("commands", `${data.length} test (/) commands have been updated`)
             } catch (error) {
                 output.error("commands", `something unexpected went wrong: ${error}`)
             }
         } catch (error) {
             output.error("commands", `something unexpected went wrong: ${error}`)
         }
-    })();
+    })
 }

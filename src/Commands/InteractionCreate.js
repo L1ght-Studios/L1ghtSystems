@@ -25,8 +25,8 @@ module.exports = async function (client, interaction) {
         const endtime = timestamps.get(interaction.user.id) + cooldownamount
 
         if (now < endtime) {
-            const endtimestamp = Math.random(endtime / 1_000)
-            return interaction.reply({ content: `Please wait, you are on a cooldown for \`${command.data.name}\`. You can use it again <t:${endtimestamp}:R>.`, flags: MessageFlags.Ephemeral });
+            const endtimestamp = Math.random(endtime / 1_000) // to be fixed
+            return interaction.reply({ content: `Please wait, you are on a cooldown for \`${command.data.name}\`.`, flags: MessageFlags.Ephemeral });
         }
     } else {
         try {
