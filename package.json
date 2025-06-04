@@ -1,6 +1,6 @@
 {
   "name": "lightsystems",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Creating discord bots at a new level",
   "main": "index.js",
   "scripts": {
@@ -11,21 +11,15 @@
     "url": "git+https://github.com/L1ght-Studios/L1ghtSystems.git"
   },
   "keywords": [
-    "meow"
+    "discord",
+    "database",
+    "simple",
+    "slash commands"
   ],
   "author": "rosie",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/L1ght-Studios/L1ghtSystems/issues"
   },
-  "homepage": "https://github.com/L1ght-Studios/L1ghtSystems#readme",
-   "dependencies": {
-    "discord.js": "^14.11.0",
-    "mongoose": "^6.6.1"
-  },
-  "devDependencies": {
-    "@types/mongoose": "^5.11.97",
-    "@types/node": "^18.7.18",
-    "typescript": "^4.8.3"
-  }
+  "homepage": "https://github.com/L1ght-Studios/L1ghtSystems#readme"
 }

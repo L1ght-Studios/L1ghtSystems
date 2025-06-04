@@ -30,7 +30,9 @@ module.exports = async function (client, interaction) {
         }
     } else {
         try {
-            await interaction.deferReply();
+            if ("deferReply" in command && deferReply === true) {
+                await interaction.deferReply();
+            }            
             await command.file(client, interaction)
         } catch (error) {
             output.error("interaction", `unexpected error executing a command ${error}`)
